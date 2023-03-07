@@ -60,5 +60,17 @@ pipeline{
                 }
             }
         }
+        stage('Upload to Duckerhub'){
+
+            steps{
+
+                script{
+                    withCredentials([string(credentialsId: 'git_cred', variable: 'docker_hub_cred')]){
+                        sh 'docker login -u clemenrance -p ${docker_hub_cred}'
+                        sh 'docker push myuber'
+                    }
+                }
+            }
+        }
     }
 }
