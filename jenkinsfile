@@ -65,7 +65,7 @@ pipeline{
             steps{
 
                 script{
-                    withCredentials([string(credentialsId: 'git_cred', variable: 'docker_hub_cred')]){
+                    withCredentials([string(credentialsId: 'dockerhub_cred', variable: 'dockerhub_cred')]){
                         sh 'docker login -u clemenrance -p ${docker_hub_cred}'
                         sh 'docker push clemenrance/cicd-images:myuber'
                     }
