@@ -56,7 +56,7 @@ pipeline{
             steps{
 
                 script{
-                    sh 'docker build -t myUber .'
+                    sh 'docker build -t myuber .'
                 }
             }
         }
